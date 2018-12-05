@@ -1,0 +1,14 @@
+field	    type    length
+
+id          int     2
+Nama        varchar 20
+Panggilan   varchar 7
+No_telp     varchar 15
+email       varchar 30
+Alamat      varchar 200
+
+
+
+
+
+
