@@ -41,7 +41,8 @@ Repository ini juga kami fungsikan untuk menyelesaikan tugas akhir semester di m
 
 - Tanggal 4 Desember 2018
 
-	- bisa menulis dan membaca JSON dari file JSON menggunakan JSON Simple
+	- bisa menulis dan membaca JSON dari file JSON menggunakan GSON
+
 ### Library
 	- GSON (Google Official)
 
