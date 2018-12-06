@@ -35,7 +35,7 @@ Repository ini juga kami fungsikan untuk menyelesaikan tugas akhir semester di m
 - Tanggal 3 Desember 2018
 	- CRUD untuk buku telpon sudah berjalan dan selesai,
 	- Pesan error sudah dimanage
-        - koneksi ke database lokal sudah lancar
+	- koneksi ke database lokal sudah lancar
 
 - Tanggal 4 Desember 2018
 	- bisa menulis dan membaca JSON dari file JSON menggunakan JSON Simple
