@@ -33,6 +33,17 @@ Repository ini juga kami fungsikan untuk menyelesaikan tugas akhir semester di m
 
 - Tangal 30 November 2018
 	- Membuat tampilan interface awal
+- Tanggal 3 Desember 2018
+
+	- CRUD untuk buku telpon sudah berjalan dan selesai,
+	- Pesan error sudah dimanage
+	- koneksi ke database lokal sudah lancar
+
+- Tanggal 4 Desember 2018
+
+	- bisa menulis dan membaca JSON dari file JSON menggunakan JSON Simple
+### Library
+	- GSON (Google Official)
 
 ## Responsi2 PD2
 &copy; panjibaskoro & friends
