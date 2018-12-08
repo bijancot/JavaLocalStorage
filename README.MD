@@ -6,8 +6,10 @@ Repository ini juga kami fungsikan untuk menyelesaikan tugas akhir semester di m
 
 ## TO-DO
 
-- Pelajari cara connect ke database
-- pelajari cara menulis teks ke file menggunakan java
+- Pelajari cara connect ke database [DONE]
+- pelajari cara menulis teks ke file menggunakan java [DONE]
+- pelajari cara edit dan hapus konten file JSON menggunakan GSON
+- integrasi semua modul
 - implementasi
 
 ## Progress 
