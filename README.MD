@@ -1,4 +1,4 @@
-# Local Storage With Java
+# Local Storage With Java (discontinue)
 
 Di repositroy ini kami (inginnya tapi gatau deh entar) akan membuat sebuah program yang mengimplementasikan bagaimana konsep sebuah local storage bekerja. Menggunakan ArrayList, HashTable dan penulisan file serta disembungkan ke sebuah Database.
 
