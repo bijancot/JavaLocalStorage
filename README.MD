@@ -33,6 +33,7 @@ Repository ini juga kami fungsikan untuk menyelesaikan tugas akhir semester di m
 
 - Tangal 30 November 2018
 	- Membuat tampilan interface awal
+
 - Tanggal 3 Desember 2018
 
 	- CRUD untuk buku telpon sudah berjalan dan selesai,
@@ -43,6 +44,10 @@ Repository ini juga kami fungsikan untuk menyelesaikan tugas akhir semester di m
 
 	- bisa menulis dan membaca JSON dari file JSON menggunakan GSON
 
+- Tanggal 8 Desember 2018
+
+	- Bisa menambahkan dan menulis di file JSON menggunakan GSON [addjson.java]
+	- mulai studi litelatur untuk edit dan hapus json menggunakan GSON
 ### Library
 	- GSON (Google Official)
 
