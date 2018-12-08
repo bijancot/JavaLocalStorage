@@ -13,12 +13,18 @@ public class GsonMu {
         JsonReader reader = new JsonReader(new FileReader("./user.json"));
         JsonObject inputObj  = gson.fromJson(reader, JsonObject.class);
 
-        inputObj.get("messages").getAsJsonArray();
+        inputObj.get("messages").getAsJsonArray().get(0);
         JsonArray jarray = inputObj.getAsJsonArray("messages");
-        JsonObject kolo = jarray.get(0).getAsJsonObject();
-        
-        System.out.println(kolo.getAsJsonObject().get("lat").getAsString());
-        System.out.println(jarray.size());
+
+        //System.out.println(jarray.size());
+        System.out.println("lon                 lat");
+        for(int i =0; i< jarray.size();i++){
+          JsonObject kolo = jarray.get(i).getAsJsonObject();
+          JsonObject jolo = kolo.getAsJsonObject();
+          String a = jolo.get("lon").getAsString();
+          String b = jolo.get("lat").getAsString();
+          System.out.println(a+"            "+b);
+        }
 
      }  catch (IOException e) {
 	e.printStackTrace();
