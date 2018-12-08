@@ -8,7 +8,7 @@ Repository ini juga kami fungsikan untuk menyelesaikan tugas akhir semester di m
 
 - Pelajari cara connect ke database [DONE]
 - pelajari cara menulis teks ke file menggunakan java [DONE]
-- pelajari cara edit dan hapus konten file JSON menggunakan GSON
+- pelajari cara edit dan hapus konten file JSON menggunakan GSON [DONE - 09122018]
 - integrasi semua modul
 - implementasi
 
@@ -50,6 +50,12 @@ Repository ini juga kami fungsikan untuk menyelesaikan tugas akhir semester di m
 
 	- Bisa menambahkan dan menulis di file JSON menggunakan GSON [addjson.java]
 	- mulai studi litelatur untuk edit dan hapus json menggunakan GSON
+
+- Tanggal 9 Desember 2018
+
+	- Bisa menghapus json [deleteGson.java]
+	- menambahkan modul baru [func_Gson.java]
+
 ### Library
 	- GSON (Google Official)
 
