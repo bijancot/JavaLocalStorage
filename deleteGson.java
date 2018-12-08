@@ -8,7 +8,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonArray;
 import java.io.FileWriter;
 
-public class editGson{
+public class deleteGson{
     public static void main(String[] args){
         Gson gson = new Gson();
         try {
@@ -23,10 +23,16 @@ public class editGson{
            for(int i =0; i< jarray.size();i++){
              JsonObject kolo = jarray.get(i).getAsJsonObject();
              JsonObject jolo = kolo.getAsJsonObject();
-             if(jolo.get("lat").getAsString().equals("newValue")){
-                jolo.addProperty("lon","sayanu");
-                jolo.addProperty("lat","budosen");
+             if(jolo.get("lon").getAsString().equals("sayanu")){
+                jolo.getAsJsonObject().remove("lon");
+                jolo.getAsJsonObject().remove("lat");
+                jarray.remove(i);
+                //System.out.println(jolo.getAsJsonArray().get(0).remove("lat"));
+                //System.out.println(jolo.getAsJsonObject().remove("lon"));
+                //jolo.addProperty("lon","sayanu");
+                //jolo.addProperty("lat","budosen");
                 //System.out.println(a+"            "+b);
+                continue;
              }
              String a = jolo.get("lon").getAsString();
              String b = jolo.get("lat").getAsString();
