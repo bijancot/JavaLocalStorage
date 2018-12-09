@@ -15,28 +15,28 @@ public class deleteGson{
            JsonReader reader = new JsonReader(new FileReader("./user.json"));
            JsonObject inputObj  = gson.fromJson(reader, JsonObject.class);
    
-           inputObj.get("messages").getAsJsonArray().get(0);
-           JsonArray jarray = inputObj.getAsJsonArray("messages");
+           inputObj.get("user").getAsJsonArray().get(0);
+           JsonArray jarray = inputObj.getAsJsonArray("user");
    
-           //System.out.println(jarray.size());
            System.out.println("lon                 lat");
            for(int i =0; i< jarray.size();i++){
              JsonObject kolo = jarray.get(i).getAsJsonObject();
              JsonObject jolo = kolo.getAsJsonObject();
-             if(jolo.get("lon").getAsString().equals("sayanu")){
-                jolo.getAsJsonObject().remove("lon");
-                jolo.getAsJsonObject().remove("lat");
+             if(jolo.get("nama").getAsString().equals("budosen")){
+                jolo.getAsJsonObject().remove("nama");
+                jolo.getAsJsonObject().remove("no_telp");
+                jolo.getAsJsonObject().remove("alamat");
+                jolo.getAsJsonObject().remove("panggilan");
+                jolo.getAsJsonObject().remove("email");
                 jarray.remove(i);
-                //System.out.println(jolo.getAsJsonArray().get(0).remove("lat"));
-                //System.out.println(jolo.getAsJsonObject().remove("lon"));
-                //jolo.addProperty("lon","sayanu");
-                //jolo.addProperty("lat","budosen");
-                //System.out.println(a+"            "+b);
                 continue;
              }
-             String a = jolo.get("lon").getAsString();
-             String b = jolo.get("lat").getAsString();
-             System.out.println(a+"            "+b);
+             String a = jolo.get("nama").getAsString();
+             String b = jolo.get("no_telp").getAsString();
+             String c = jolo.get("alamat").getAsString();
+             String d = jolo.get("panggilan").getAsString();
+             String e = jolo.get("email").getAsString();
+             System.out.println(a+"\t"+b+"\t"+c+"\t"+d+"\t"+e);
             
            }
              try (FileWriter writor = new FileWriter("./user.json")) {
