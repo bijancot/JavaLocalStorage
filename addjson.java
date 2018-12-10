@@ -16,9 +16,14 @@ public class addjson {
             JsonReader reader = new JsonReader(new FileReader("./user.json"));
             JsonObject inputObj  = gson.fromJson(reader, JsonObject.class);
             JsonObject newObject = new JsonObject() ;
-            newObject.addProperty("lat", "budosen");
-            newObject.addProperty("lon", "sayangku");
-            inputObj.get("messages").getAsJsonArray().add(newObject);         
+            //newObject.addProperty("lat", "budosen");
+            //newObject.addProperty("lon", "sayangku");
+            newObject.addProperty("nama","budosen");
+            newObject.addProperty("no_telp","089343433433");
+            newObject.addProperty("alamat","jauhh");
+            newObject.addProperty("panggilan","yangg");
+            newObject.addProperty("email","budosen@gmail.com");
+            inputObj.get("user").getAsJsonArray().add(newObject);         
             System.out.println(inputObj);
             String yolo = inputObj.toString();
             try (FileWriter writor = new FileWriter("./user.json")) {
