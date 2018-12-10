@@ -121,13 +121,6 @@ public class func_Gson{
                         jarray.remove(i);
                         continue;
                     }
-
-                        //String a = jolo.get("nama").getAsString();
-                        //String b = jolo.get("no_telp").getAsString();
-                        //String c = jolo.get("alamat").getAsString();
-                        //String d = jolo.get("panggilan").getAsString();
-                        //String e = jolo.get("email").getAsString();
-                        //System.out.println(a+"\t"+b+"\t"+c+"\t"+d+"\t"+e);
             
                     }
                  try (FileWriter writor = new FileWriter("./user.json")) {
