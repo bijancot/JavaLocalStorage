@@ -121,11 +121,7 @@ public class func_Gson{
                         jarray.remove(i);
                         continue;
                     }
-<<<<<<< HEAD
-
-=======
             
->>>>>>> master
                     }
                  try (FileWriter writor = new FileWriter("./user.json")) {
                     gson.toJson(inputObj, writor);
