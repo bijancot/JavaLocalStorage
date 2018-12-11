@@ -10,71 +10,73 @@ public class func{
     static PreparedStatement preparedStatement;
     static Scanner inpxt = new Scanner(System.in);
     static void Menu(){
-        System.out.println("\n\n=====-Menu-====");
-        System.out.println("1. Lihat Data");
-        System.out.println("2. Tambah Data");
-        System.out.println("3. Edit Data");
-        System.out.println("4. Hapus Data");
-        System.out.println("5. Cek Koneksi");
-        System.out.println("6. Cek Status Sistem");
-        System.out.println("0. Keluar");
-        System.out.println("===============");
-        System.out.println("Pilihan anda >");
-
-        try{
-            Scanner input = new Scanner(System.in);
-            int pilihan = input.nextInt();
-
-            switch (pilihan) {
-                case 0:
-                System.out.println("Keluar");
-                Keluar();
-                break;
-
-                case 1:
-                LihatData();
-                break;
-
-                case 2:
-                TambahData();
-                break;
-
-                case 3:
-                EditData();
-                break;
-
-                case 4:
-                HapusData();
-                break;
-
-                case 5:
-                if(Database.yolo_connect()==200){
-                    System.out.println("Koneksi Ke Database Sukses & berjalan Lancar");
-                    func.Menu();
-                }else if(Database.yolo_connect()==500){
-                    System.out.println("Ada yang salah dengan database, koneksi akan dialihkan ke file lokal yang telah disipakan");
+            System.out.println("\n\n=====-Menu-====");
+            System.out.println("1. Lihat Data");
+            System.out.println("2. Tambah Data");
+            System.out.println("3. Edit Data");
+            System.out.println("4. Hapus Data");
+            System.out.println("5. Cek Koneksi");
+            System.out.println("6. Cek Status Sistem");
+            System.out.println("0. Keluar");
+            System.out.println("===============");
+            System.out.println("Pilihan anda >");
+    
+            try{
+                Scanner input = new Scanner(System.in);
+                int pilihan = input.nextInt();
+    
+                switch (pilihan) {
+                    case 0:
+                    System.out.println("Keluar");
+                    Keluar();
+                    break;
+    
+                    case 1:
+                    LihatData();
+                    break;
+    
+                    case 2:
+                    TambahData();
+                    break;
+    
+                    case 3:
+                    EditData();
+                    break;
+    
+                    case 4:
+                    HapusData();
+                    break;
+    
+                    case 5:
+                    if(Database.yolo_connect()==200){
+                        error.GetError(200);
+                        Menu();
+                    }else if(Database.yolo_connect()==500){
+                        error.GetError(100);
+                        Menu();
+                    }
+                    break;
+    
+                    case 6:
+                    CekSistem();
+                    break;
+    
+                    default:
+                    System.out.println("Inputen tidak jelas!!, System dihentikan!!");
+                    Keluar();
+                    break;
+                
                 }
-                break;
-
-                case 6:
-                CekSistem();
-                break;
-
-                default:
-                System.out.println("Inputen tidak jelas!!, System dihentikan!!");
-                Keluar();
-                break;
-            
+    
+            }catch(Exception e){
+                e.printStackTrace();
+                Hasil = 400;
             }
-
-        }catch(Exception e){
-            e.printStackTrace();
-            Hasil = 400;
-        }
     }
     static void LihatData(){
 
-        String sql = "SELECT * FROM buku_telpon";
+        if(Database.yolo_connect()==200){
+            String sql = "SELECT * FROM buku_telpon";
         
         try {
             Database.rs = Database.stmt.executeQuery(sql);
@@ -112,6 +114,13 @@ public class func{
             e.printStackTrace();
         }
         Menu();
+        }else if(Database.yolo_connect()==500){
+            error.GetError(100);
+            System.out.println("System dialihkan ke penyimpanan lokal");
+            func_Gson.GetGSON();
+            func.Menu();
+        }
+        
     }
 
     static void TambahData(){
@@ -141,6 +150,7 @@ public class func{
             preparedStatement.setString(5, Email);
             preparedStatement.executeUpdate();
             
+            func_Gson.AddGSON(Nama, NoTelp, Alamat, Panggilan, Email);
             // simpan buku
             System.out.println("\n\n+-------------------------------+");
             System.out.println("|  Kontak Berhasil ditambahkan  |");
@@ -179,6 +189,7 @@ public class func{
             preparedStatement = Database.conn.prepareStatement(sqol);
             preparedStatement.setString(1, "%" + Noma + "%");
             Database.rs = preparedStatement.executeQuery();
+            
             }catch(Exception E){
                 //System.out.println("Inputan salah [ERROR]");
                 E.printStackTrace();;
@@ -216,6 +227,7 @@ public class func{
             preparedStatement.setString(5, Emel);
             preparedStatement.setString(6, id);
             preparedStatement.executeUpdate();
+            func_Gson.EditGSON(Nama, Nema, NeTelp, Alemat, Penggilan, Emel);
             Menu();
             }
         } catch (Exception e) {
@@ -251,16 +263,30 @@ public class func{
                 String sqel = "DELETE FROM buku_telpon WHERE nama=?";
                 preparedStatement = Database.conn.prepareStatement(sqel);
                 preparedStatement.setString(1, Noma);
-    
+                
                 // hapus data
                 preparedStatement.executeUpdate();
+                func_Gson.RemoveGSON(Noma);
                 Menu();
             } catch (Exception e) {
                 e.printStackTrace();
             }
     }
 
-    static void CekSistem(){}
+    static void CekSistem(){
+        if(Database.yolo_connect()==200){
+            System.out.println("Status Koneksi Database : ");
+            error.GetError(200);
+            System.out.println("Sistem Berjalan normal");
+            Menu();
+        }else if(Database.yolo_connect()==500){
+            System.out.println("Status Koneksi Database : ");
+            error.GetError(100);
+            System.out.println("Sistem Berjalan normal");
+            Menu();
+        }
+
+    }
     static void Keluar(){
         System.exit(0);
     }

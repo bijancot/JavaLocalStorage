@@ -20,6 +20,8 @@ public class LocalJavaS{
             func.Menu();
         }else if(Database.yolo_connect()==500){
             error.GetError(100);
+            System.out.println("System dialihkan ke penyimpanan lokal");
+            func.Menu();
         }
         
 }

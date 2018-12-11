@@ -27,12 +27,10 @@ public class Database {
                 Hasil = 200;
                 return Hasil;
         }
-
             stmt.close();
             conn.close();
     
         } catch (Exception ex) {
-            //ex.printStackTrace();
             Hasil = 500;
             return Hasil;
         }

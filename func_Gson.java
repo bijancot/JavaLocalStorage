@@ -59,7 +59,7 @@ public class func_Gson{
             e.printStackTrace();
         }
     }
-    public static void EditGSON(){
+    public static void EditGSON(String param, String nama, String no_telp, String alamat, String panggilan, String email){
         Gson gson = new Gson();
 
         try {
@@ -73,21 +73,13 @@ public class func_Gson{
                 JsonObject kolo = jarray.get(i).getAsJsonObject();
                 JsonObject jolo = kolo.getAsJsonObject();
                 
-                    if(jolo.get("nama").getAsString().equals("budosen")){
-                        jolo.addProperty("nama","budosen");
-                        jolo.addProperty("no_telp","089343433433");
-                        jolo.addProperty("alamat","jauhh");
-                        jolo.addProperty("panggilan","yangg <3");
-                        jolo.addProperty("email","budosen@gmail.com");
+                    if(jolo.get("nama").getAsString().equals(param)){
+                        jolo.addProperty("nama",nama);
+                        jolo.addProperty("no_telp",no_telp);
+                        jolo.addProperty("alamat",alamat);
+                        jolo.addProperty("panggilan",panggilan);
+                        jolo.addProperty("email",email);
                     }          
-                
-                        String a = jolo.get("nama").getAsString();
-                        String b = jolo.get("no_telp").getAsString();
-                        String c = jolo.get("alamat").getAsString();
-                        String d = jolo.get("panggilan").getAsString();
-                        String e = jolo.get("email").getAsString();
-                
-                        System.out.println(a+"\t"+b+"\t"+c+"\t"+d+"\t"+e);
                 
                 }
             try (FileWriter writor = new FileWriter("./user.json")) {
