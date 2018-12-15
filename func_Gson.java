@@ -20,7 +20,8 @@ public class func_Gson{
            JsonArray jarray = inputObj.getAsJsonArray("user");
 
            for(int i =0; i< jarray.size();i++){
-             JsonObject kolo = jarray.get(i).getAsJsonObject();
+            try{
+                JsonObject kolo = jarray.get(i).getAsJsonObject();
              JsonObject jolo = kolo.getAsJsonObject();
              String a = jolo.get("nama").getAsString();
              String b = jolo.get("no_telp").getAsString();
@@ -28,9 +29,13 @@ public class func_Gson{
              String d = jolo.get("panggilan").getAsString();
              String e = jolo.get("email").getAsString();
              System.out.println(a+"\t"+b+"\t"+c+"\t"+d+"\t"+e);
+            } catch(Exception o){
+                func.Menu();                
+            }
            }
             }catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            func.Menu();
             }
    
     }
@@ -166,15 +171,21 @@ public class func_Gson{
                 String sql = jolo.get("queue").getAsString();
                 Database.stmt = Database.conn.createStatement();
                 Database.stmt.executeUpdate(sql);
+                jolo.getAsJsonObject().remove("queue");
+                jarray.remove(i);
+                 try (FileWriter writor = new FileWriter("./temp.json")) {
+                    gson.toJson(inputObj, writor);
+                } catch (IOException x) {
+                x.printStackTrace();
+                }
                 }catch(Exception e){
                 e.printStackTrace();
              }
-                jolo.getAsJsonObject().remove("queue");
-                jarray.remove(i);
              
             }
             }catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            func.Menu();
             }
     }
     public static void GetGSONS(String nama){

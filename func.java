@@ -117,7 +117,9 @@ public class func{
             }
         }
          catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Database dalam masalah segera dialihkan ke penyimpanan lokal");
+            Menu();
+            //e.printStackTrace();
         }
         Menu();
         }else if(Database.yolo_connect()==500){
@@ -131,13 +133,26 @@ public class func{
 
     static void TambahData(){
         if(Database.yolo_connect()==200){
+            String squl = "SELECT * FROM buku_telpon";
             try {
+                Database.rs = Database.stmt.executeQuery(squl);
                 System.out.println("+-------------------------+");
                 System.out.println("|   Tambah Kontak Baru    |");
                 System.out.println("+-------------------------+");
                 System.out.print("Masukkan Nama Kontak > ");
                 Scanner inpot = new Scanner(System.in);
                 String Nama = inpot.nextLine();
+                while (Database.rs.next()) {
+                    int id = Database.rs.getInt("id");
+                    String Nxma = Database.rs.getString("nama");
+                    if(Nxma.equals(Nama)){
+                        System.out.println(String.format("Nama : "+Nama +" Sudah digunakan"));
+                        Menu();     
+                    }
+                    else{
+                        continue;
+                    }
+                }
                 System.out.print("Masukkan Nomor Telpon > ");
                 String NoTelp = inpot.nextLine();
                 System.out.print("Masukkan Alamat Kontak > ");
@@ -147,7 +162,9 @@ public class func{
                 System.out.print("Masukkan Alamat Email Kontak > ");
                 String Email = inpot.nextLine();
                 // query simpan
-    
+                
+
+
                 String sql = "INSERT INTO buku_telpon (nama, no_telp, alamat, panggilan, email) VALUE(?, ?, ?, ?, ?)";
                 PreparedStatement preparedStatement = Database.conn.prepareStatement(sql);
                 preparedStatement.setString(1, Nama);
@@ -373,9 +390,9 @@ public class func{
                 String Noma = yolo.nextLine();
 
                 String sqel = "DELETE FROM buku_telpon WHERE nama=''"+Noma+"'";
-
-                func_Gson.AddtoTemp(sqel);
                 func_Gson.RemoveGSON(Noma);
+                func_Gson.AddtoTemp(sqel);
+                
                 Menu();
 
 

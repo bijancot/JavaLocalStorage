@@ -22,12 +22,13 @@ public class hapus{
            for(int i =0; i< jarray.size();i++){
             JsonObject kolo = jarray.get(i).getAsJsonObject();
             JsonObject jolo = kolo.getAsJsonObject();
-            
-                if(jolo.get("queue").getAsString().equals("Nama")==false){
-                    jolo.getAsJsonObject().remove("queue");
-                    jarray.remove(i);
-                    continue;
-                }
+            jolo.getAsJsonObject().remove("queue");
+            jarray.remove(i);
+            }
+            try (FileWriter writor = new FileWriter("./temp.json")) {
+                gson.toJson(inputObj, writor);
+            } catch (IOException e) {
+            e.printStackTrace();
             }
             }catch (IOException e) {
             e.printStackTrace();
