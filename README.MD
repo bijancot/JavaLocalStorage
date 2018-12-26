@@ -9,8 +9,9 @@ Repository ini juga kami fungsikan untuk menyelesaikan tugas akhir semester di m
 - Pelajari cara connect ke database [DONE]
 - pelajari cara menulis teks ke file menggunakan java [DONE]
 - pelajari cara edit dan hapus konten file JSON menggunakan GSON [DONE - 09122018]
-- integrasi semua modul
-- implementasi
+- integrasi semua modul [DONE]
+- implementasi [DONE]
+- Make it Faster
 
 ## Progress 
 - Tanggal 25 November 2018
@@ -58,6 +59,6 @@ Repository ini juga kami fungsikan untuk menyelesaikan tugas akhir semester di m
 
 ### Library
 	- GSON (Google Official)
-
+	- can be found at 'lib' folder
 ## Responsi2 PD2
 &copy; panjibaskoro & friends
